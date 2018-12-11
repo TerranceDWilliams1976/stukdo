@@ -55,3 +55,5 @@ gem 'simple_form'
 
 gem 'devise'
 
+source "https://rubygems.org"
+gem 'github-pages'
