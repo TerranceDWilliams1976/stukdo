@@ -1,48 +1,49 @@
 require 'test_helper'
 
-class TasksControllerTest < ActionDispatch::IntegrationTest
+class TasksControllerTest < ActionController::TestCase
   setup do
     @task = tasks(:one)
   end
 
   test "should get index" do
-    get tasks_url
+    get :index
     assert_response :success
+    assert_not_nil assigns(:tasks)
   end
 
   test "should get new" do
-    get new_task_url
+    get :new
     assert_response :success
   end
 
   test "should create task" do
     assert_difference('Task.count') do
-      post tasks_url, params: { task: { content: @task.content } }
+      post :create, task: { content: @task.content }
     end
 
-    assert_redirected_to task_url(Task.last)
+    assert_redirected_to task_path(assigns(:task))
   end
 
   test "should show task" do
-    get task_url(@task)
+    get :show, id: @task
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_task_url(@task)
+    get :edit, id: @task
     assert_response :success
   end
 
   test "should update task" do
-    patch task_url(@task), params: { task: { content: @task.content } }
-    assert_redirected_to task_url(@task)
+    patch :update, id: @task, task: { content: @task.content }
+    assert_redirected_to task_path(assigns(:task))
   end
 
   test "should destroy task" do
     assert_difference('Task.count', -1) do
-      delete task_url(@task)
+      delete :destroy, id: @task
     end
 
-    assert_redirected_to tasks_url
+    assert_redirected_to tasks_path
   end
 end
