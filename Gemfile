@@ -55,3 +55,6 @@ gem 'simple_form'
 
 gem 'devise'
 
+group :development do
+    gem 'capistrano'
+end
