@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby "2.5.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 
@@ -30,7 +30,7 @@ end
 
 group :production do
 	gem 'rails_12factor'
-	gem 'pg', '~>1.0.0'
+	gem 'pg'
 end
 
 # Use ActiveModel has_secure_password
@@ -55,6 +55,7 @@ gem 'simple_form'
 
 gem 'devise'
 
-group :development do
-    gem 'capistrano'
-end
+gem 'capistrano', '3.5.0'
+gem 'capistrano-rails', '~> 1.1.6'
+gem 'capistrano-bundler', '~> 1.1.4'
+gem 'capistrano-rvm', '~> 0.1.2'
