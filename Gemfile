@@ -25,12 +25,11 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
 	gem 'spring'
-	gem 'sqlite3'
 end
 
 group :production do
 	gem 'rails_12factor'
-	gem 'pg'
+	gem 'pg', '~> 0.18'
 end
 
 # Use ActiveModel has_secure_password
